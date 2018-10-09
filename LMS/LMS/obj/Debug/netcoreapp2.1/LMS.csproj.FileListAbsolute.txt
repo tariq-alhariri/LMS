@@ -35,3 +35,8 @@ C:\Users\LENOVO\Desktop\LMS\LMS\LMS\obj\Debug\netcoreapp2.1\Razor\Pages\Authors\
 C:\Users\LENOVO\Desktop\LMS\LMS\LMS\obj\Debug\netcoreapp2.1\Razor\Pages\Authors\Details.g.cshtml.cs
 C:\Users\LENOVO\Desktop\LMS\LMS\LMS\obj\Debug\netcoreapp2.1\Razor\Pages\Authors\Edit.g.cshtml.cs
 C:\Users\LENOVO\Desktop\LMS\LMS\LMS\obj\Debug\netcoreapp2.1\Razor\Pages\Authors\Index.g.cshtml.cs
+C:\Users\LENOVO\Desktop\LMS\LMS\LMS\obj\Debug\netcoreapp2.1\Razor\Pages\Books\Create.g.cshtml.cs
+C:\Users\LENOVO\Desktop\LMS\LMS\LMS\obj\Debug\netcoreapp2.1\Razor\Pages\Books\Delete.g.cshtml.cs
+C:\Users\LENOVO\Desktop\LMS\LMS\LMS\obj\Debug\netcoreapp2.1\Razor\Pages\Books\Details.g.cshtml.cs
+C:\Users\LENOVO\Desktop\LMS\LMS\LMS\obj\Debug\netcoreapp2.1\Razor\Pages\Books\Edit.g.cshtml.cs
+C:\Users\LENOVO\Desktop\LMS\LMS\LMS\obj\Debug\netcoreapp2.1\Razor\Pages\Books\Index.g.cshtml.cs
