@@ -12,8 +12,14 @@
 </p>
 <form>
     <p>
+
+
         Serach: <input type="text" name="SearchString">
-        <input type="submit" value="Submit" placeholder="Search"/>
+        <input type="submit" value="Submit" placeholder="Search" />
+
+       Gender: <select asp-for="AuthorGender" asp-items="Model.Gender">
+            <option value="">All</option>
+        </select>
     </p>
 </form>
 <table class="table">

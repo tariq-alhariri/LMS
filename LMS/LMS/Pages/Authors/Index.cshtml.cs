@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using LMS.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace LMS.Pages.Authors
 {
@@ -18,17 +19,43 @@ namespace LMS.Pages.Authors
             _context = context;
         }
 
-        public IList<Author> Author { get;set; }
 
-        public async Task OnGetAsync(string searchString)
+
+
+        public IList<Author> Author { get;set; }
+        public SelectList Gender { get; set; }
+        public string AuthorGender { get; set; }
+
+        public async Task OnGetAsync(string authorGender, string searchString)
         {
-            //Author = await _context.Author.ToListAsync();
+            ////Author = await _context.Author.ToListAsync();
+            //var authors = from a in _context.Author
+            //             select a;
+
+            //if (!String.IsNullOrEmpty(searchString))
+            //{
+            //    authors = authors.Where(a => 
+            //    a.FirstName.Contains(searchString) ||
+            //    a.LastName.Contains(searchString) ||
+            //    a.DisplayedName.Contains(searchString) ||
+            //    a.Email.Contains(searchString) ||
+            //    a.Mobile.Contains(searchString));
+            //}
+
+            //Author = await authors.ToListAsync();
+
+
+            // Use LINQ to get list of genres.
+            IQueryable<string> genreQuery = from a in _context.Author
+                                            orderby a.Gender
+                                            select a.Gender;
+
             var authors = from a in _context.Author
                          select a;
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                authors = authors.Where(a => 
+                authors = authors.Where(a =>
                 a.FirstName.Contains(searchString) ||
                 a.LastName.Contains(searchString) ||
                 a.DisplayedName.Contains(searchString) ||
@@ -36,6 +63,11 @@ namespace LMS.Pages.Authors
                 a.Mobile.Contains(searchString));
             }
 
+                if (!String.IsNullOrEmpty(authorGender))
+            {
+                authors = authors.Where(a => a.Gender == authorGender);
+            }
+            Gender = new SelectList(await genreQuery.Distinct().ToListAsync());
             Author = await authors.ToListAsync();
         }
     }
