@@ -32,9 +32,17 @@ namespace LMS.Pages.Authors
             {
                 return Page();
             }
-
-            _context.Author.Add(Author);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Author.Add(Author);
+                await _context.SaveChangesAsync();
+            }
+            catch
+            {
+                return RedirectToPage("../Error");
+            }
+            //_context.Author.Add(Author);
+            //await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

@@ -20,9 +20,23 @@ namespace LMS.Pages.Authors
 
         public IList<Author> Author { get;set; }
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string searchString)
         {
-            Author = await _context.Author.ToListAsync();
+            //Author = await _context.Author.ToListAsync();
+            var authors = from a in _context.Author
+                         select a;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                authors = authors.Where(a => 
+                a.FirstName.Contains(searchString) ||
+                a.LastName.Contains(searchString) ||
+                a.DisplayedName.Contains(searchString) ||
+                a.Email.Contains(searchString) ||
+                a.Mobile.Contains(searchString));
+            }
+
+            Author = await authors.ToListAsync();
         }
     }
 }

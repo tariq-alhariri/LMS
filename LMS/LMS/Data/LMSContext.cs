@@ -14,5 +14,12 @@ namespace LMS.Models
         }
 
         public DbSet<LMS.Models.Author> Author { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Author>()
+                .HasAlternateKey(c => c.DisplayedName)
+                .HasName("AlternateKey_LicensePlate");
+        }
     }
 }
